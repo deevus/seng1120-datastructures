@@ -6,19 +6,15 @@
 
 class Node {
 public:
-  Node(
-    const value_type& init_data = value_type(), 
-    Node* init_link = NULL
-  )
-  { data_field = init_data; link_field = init_link; }
+  Node(const value_type& init_data, Node* init_link);
 
-  void set_data(const value_type& new_data) { data_field = new_data; }
-  void set_link(Node* new_link) { link_field = new_link; }
+  void set_data(const value_type& new_data);
+  void set_link(Node* new_link);
 
-  value_type Data() const { return data_field; }
+  value_type Data() const;
 
-  const Node* Link() const { return link_field; }
-  Node* Link() { return link_field; }
+  const Node* Link() const;
+  Node* Link();
 
 private:
   value_type data_field;

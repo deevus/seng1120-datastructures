@@ -18,7 +18,7 @@ void LinkedList::AddBeforeHead(Node* entry) {
   head = entry;
 }
 
-void LinkedList::AddAfterNode(Node* new_entry, const Node& target) {
-  
+void LinkedList::AddAfterNode(Node* new_entry, Node* target) {
+  new_entry->set_link(target->Link());
+  target->set_link(new_entry);
 }
-

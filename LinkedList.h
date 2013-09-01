@@ -9,7 +9,7 @@ public:
 
   void AddAfterTail(Node* entry);
   void AddBeforeHead(Node* entry);
-  void AddAfterNode(const Node* new_entry, const Node& target);
+  void AddAfterNode(Node* new_entry, Node* target);
 
 private:
   Node* head;
