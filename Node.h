@@ -1,12 +1,14 @@
 #include <cstdlib>
+#include "../Flight.h"
 
-#ifndef value_type
-  typedef double value_type;
-#endif
+using namespace assign1;
+typedef Flight value_type;
 
 class Node {
 public:
+  Node() { link_field = NULL; }
   Node(const value_type& init_data, Node* init_link);
+  Node(const Node* node);
 
   void set_data(const value_type& new_data);
   void set_link(Node* new_link);
