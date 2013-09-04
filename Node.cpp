@@ -1,7 +1,10 @@
 #include "Node.h"
-#include <iostream>
 
 using namespace std;
+
+Node::Node() {
+  link_field = NULL; 
+}
     
 Node::Node(const value_type& init_data = value_type(), Node* init_link = NULL) { 
   data_field = init_data; 

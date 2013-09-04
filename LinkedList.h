@@ -1,3 +1,6 @@
+#ifndef LINKEDLIST_H_DEFINED
+#define LINKEDLIST_H_DEFINED
+
 #include "Node.h"
 
 class LinkedList {
@@ -23,3 +26,5 @@ private:
 };
 
 ostream& operator<< (ostream& out, const LinkedList &ll);
+
+#endif 

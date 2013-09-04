@@ -1,4 +1,6 @@
-#include <cstdlib>
+#ifndef NODE_H_DEFINED
+#define NODE_H_DEFINED
+
 #include "../Flight.h"
 
 using namespace assign1;
@@ -6,7 +8,7 @@ typedef Flight value_type;
 
 class Node {
 public:
-  Node() { link_field = NULL; }
+  Node();
   Node(const value_type& init_data, Node* init_link);
   Node(const Node* node);
 
@@ -22,3 +24,5 @@ private:
   value_type data_field;
   Node* link_field;
 };
+
+#endif
