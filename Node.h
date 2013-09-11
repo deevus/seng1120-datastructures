@@ -9,20 +9,25 @@ typedef Flight value_type;
 class Node {
 public:
   Node();
-  Node(const value_type& init_data, Node* init_link);
+  Node(const value_type& init_data = value_type(), Node* next = NULL, Node* prev = NULL);
   Node(const Node* node);
 
   void set_data(const value_type& new_data);
-  void set_link(Node* new_link);
+  void set_next(Node* new_next);
+  void set_prev(Node* new_prev);
 
   value_type Data() const;
 
-  const Node* Link() const;
-  Node* Link();
+  const Node* Next() const;
+  Node* Next();
+
+  const Node* Prev() const;
+  Node* Prev();
 
 private:
   value_type data_field;
-  Node* link_field;
+  Node* next_field;
+  Node* prev_field;
 };
 
 #endif

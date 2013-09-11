@@ -5,7 +5,7 @@
 
 class LinkedList {
 public:
-  LinkedList() { head = NULL; tail = NULL; }
+  LinkedList();
 
   ~LinkedList();
 
@@ -19,10 +19,12 @@ public:
   void AddBeforeHead(Node* entry);
   void AddAfterNode(Node* new_entry, Node* target);
   int Size();
+  const int Size() const;
 
 private:
   Node* head;
   Node* tail;
+  int size;
 };
 
 ostream& operator<< (ostream& out, const LinkedList &ll);
