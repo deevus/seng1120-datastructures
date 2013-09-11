@@ -1,3 +1,9 @@
+/**************************/
+/* Simon Hartcher         */
+/* C3185790               */
+/* Software Engineering 2 */
+/**************************/
+
 #include "Node.h"
 
 using namespace std;
