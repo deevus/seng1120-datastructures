@@ -7,25 +7,33 @@
 #include "LinkedList.h"
 #include <iostream>
 
-LinkedList::LinkedList() { 
+LinkedList::LinkedList() {
+  //init values 
   head = NULL; 
   tail = NULL; 
   size = 0;
 }
 
 LinkedList::~LinkedList() {
+  //start at head
   Node * current = head;
   Node * next = NULL;
+
+  //only if there is a head
   if (current != NULL) do {
+    //prepare next node
     next = current->Next();
+
     delete current;
+
+    //loop
     current = next;
   } while (next != NULL);
 }
 
 Node* LinkedList::get_head() {
   return head;
-};
+}
 
 Node* LinkedList::get_tail() {
   return tail;
@@ -33,7 +41,7 @@ Node* LinkedList::get_tail() {
 
 const Node* LinkedList::get_head() const {
   return head;
-};
+}
 
 const Node* LinkedList::get_tail() const {
   return tail;
@@ -58,6 +66,7 @@ void LinkedList::InsertAfterTail(Node* entry) {
 }
 
 void LinkedList::InsertBeforeHead(Node* entry) {
+  //pass through
   InsertBeforeNode(entry, head);
 }
 
@@ -114,10 +123,15 @@ const size_t LinkedList::Size() const {
 }
 
 ostream& operator<< (ostream& out, const LinkedList &ll) {
+  //start at head
   const Node * current = ll.get_head();
+
   size_t count = 0;
   while (count != ll.Size()) {
+    //send out value_type
     out << current->Data() << endl;
+
+    //loop
     current = current->Next();
     count++;
   }
