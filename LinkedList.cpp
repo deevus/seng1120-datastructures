@@ -16,7 +16,7 @@ LinkedList::LinkedList() {
 LinkedList::~LinkedList() {
   Node * current = head;
   Node * next = NULL;
-  do {
+  if (current != NULL) do {
     next = current->Next();
     delete current;
     current = next;
@@ -105,17 +105,17 @@ void LinkedList::InsertBeforeNode(Node* entry, Node* target) {
   size++;
 }
 
-int LinkedList::Size() {
+size_t LinkedList::Size() {
   return size;
 }
 
-const int LinkedList::Size() const { 
+const size_t LinkedList::Size() const { 
   return size;
 }
 
 ostream& operator<< (ostream& out, const LinkedList &ll) {
   const Node * current = ll.get_head();
-  int count = 0;
+  size_t count = 0;
   while (count != ll.Size()) {
     out << current->Data() << endl;
     current = current->Next();
