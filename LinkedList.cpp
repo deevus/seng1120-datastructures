@@ -33,7 +33,7 @@ const Node* LinkedList::get_tail() const {
   return tail;
 }
 
-void LinkedList::AddAfterTail(Node* entry) {
+void LinkedList::InsertAfterTail(Node* entry) {
   //if the tail is NULL, its an empty list
   //we can set the head and tail to the new entry
   if (tail == NULL) {
@@ -51,20 +51,11 @@ void LinkedList::AddAfterTail(Node* entry) {
   size++;
 }
 
-void LinkedList::AddBeforeHead(Node* entry) {
-  //heads new prev is new node
-  head->set_prev(entry);
-
-  //set next of new node to old head
-  entry->set_next(head);
-
-  //set it as head
-  head = entry;
-
-  size++;
+void LinkedList::InsertBeforeHead(Node* entry) {
+  InsertBeforeNode(entry, head);
 }
 
-void LinkedList::AddAfterNode(Node* new_entry, Node* target) {
+void LinkedList::InsertAfterNode(Node* new_entry, Node* target) {
   //set next of new node to the next of the target
   Node* next = target->Next();
   new_entry->set_next(next);
@@ -84,6 +75,26 @@ void LinkedList::AddAfterNode(Node* new_entry, Node* target) {
   if (target == tail) {
     tail = new_entry;
   }
+
+  size++;
+}
+
+void LinkedList::InsertBeforeNode(Node* entry, Node* target) {
+  //set new entry to head if target is head
+  if (target == head) {
+    head = entry;
+  }
+  else {
+    Node* prev = target->Prev();
+    prev->set_next(entry);
+    entry->set_prev(prev);
+  }
+
+  //target's new prev is entry
+  target->set_prev(entry);
+
+  //set next of entry to target
+  entry->set_next(target);
 
   size++;
 }

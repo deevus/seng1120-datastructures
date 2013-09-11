@@ -15,9 +15,10 @@ public:
   const Node* get_head() const;
   const Node* get_tail() const;
 
-  void AddAfterTail(Node* entry);
-  void AddBeforeHead(Node* entry);
-  void AddAfterNode(Node* new_entry, Node* target);
+  void InsertAfterTail(Node* entry);
+  void InsertBeforeHead(Node* entry);
+  void InsertBeforeNode(Node* entry, Node* target);
+  void InsertAfterNode(Node* new_entry, Node* target);
   int Size();
   const int Size() const;
 
